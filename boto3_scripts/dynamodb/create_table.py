@@ -35,20 +35,12 @@ response = create_dynamodb_table(
         {
             'AttributeName': 'pk',  # Attribute used as HASH key
             'AttributeType': 'S'  # S represents a string data type
-        },
-        {
-            'AttributeName': 'link',  # Attribute used as RANGE key
-            'AttributeType': 'S'  # S represents a string data type
         }
-    ],
+        ],
     key_schema=[
         {
             'AttributeName': 'pk',
             'KeyType': 'HASH'  # HASH indicates the partition key
-        },
-        {
-            'AttributeName': 'link',
-            'KeyType': 'RANGE'  # RANGE indicates the sort key
         }
     ]
 )
