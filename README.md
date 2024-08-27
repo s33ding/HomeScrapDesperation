@@ -1,6 +1,6 @@
 # HomeScrapDesperation
 
-**HomeScrapDesperation** is a personal project to automate my search for apartments in **CLN**, a commercial area in Brasília known for its small, affordable apartments on top of shops. These apartments are well-located, but it's tough to find ones in good condition with a nice view. This scraper helps me stay on top of new listings, which is my best hope for finding the right place.
+**HomeScrapDesperation** is a personal project aimed at simplifying the challenging process of finding an affordable apartment in **CLN**, a commercial area in Brasília. With the cost of living in Brasília being high, finding a well-located, affordable apartment in good condition is a real struggle. This scraper helps keep track of new listings to improve my chances of securing a place.
 
 ## What It Does
 
@@ -9,8 +9,9 @@
 
 ## Why This Matters
 
-Finding an apartment in CLN that meets my needs is difficult. This project automates the search, giving me a better chance of acting fast when something good appears.
+Brasília is an expensive city to live in, and the housing market moves fast. Having missed out on opportunities before, this tool helps me stay ahead, giving me a better chance to act quickly when a suitable apartment is listed.
 
 ## Future Plans
 
 - Automate daily scraping and add custom alerts for listings that meet my criteria.
+
