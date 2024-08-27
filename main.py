@@ -3,6 +3,9 @@ from bs4 import BeautifulSoup
 
 # Global variables
 url = "https://www.dfimoveis.com.br/aluguel/df/brasilia/asa-norte/apartamento?palavrachave=cln&ordenamento=mais-recente"
+response = None
+soup = None
+listings = None
 
 # Function to scrape apartments
 def scrape_apartments():
@@ -22,25 +25,21 @@ def scrape_apartments():
             # Extract the description of the apartment
             description = listing.get_text(strip=True)
             
-            # Find the media content (link to the desired page and image)
+            # Find the media content (link to the desired page)
             parent_listing = listing.find_next_sibling('div', class_='new-anounce')
             if parent_listing:
-                # Extract the image URL
-                image_source = parent_listing.find('source')['srcset']
-                
-                # Extract the CRECI (primary key or unique identifier for the apartment)
-                creci = parent_listing.find('p').get_text(strip=True)
-                
-                # If there's a link to the page of the apartment, we can extract it
+                # Extract the apartment link from the previous 'a' tag
                 link_tag = listing.find_previous('a', href=True)
                 if link_tag:
-                    link = link_tag['href']
+                    link = "https://www.dfimoveis.com.br" + link_tag['href']  # Ensure the link is complete
                 else:
                     link = "No link available"
                 
+                # Extract the CRECI (real estate registration number)
+                creci = parent_listing.find('p').get_text(strip=True)
+                
                 # Print the details
                 print(f"Description: {description}")
-                print(f"Image URL: {image_source}")
                 print(f"Apartment Link: {link}")
                 print(f"Cresci (PK): {creci}")
                 print('-' * 40)
@@ -50,6 +49,4 @@ def scrape_apartments():
 
 # Scrape apartments
 scrape_apartments()
-
-# Now response, soup, and listings are globally accessible
 
