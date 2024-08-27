@@ -2,16 +2,13 @@ import requests
 import boto3
 from bs4 import BeautifulSoup
 import pandas as pd
+import config
 import re
 
 # Global variables
-url = "https://www.dfimoveis.com.br/aluguel/df/brasilia/asa-norte/apartamento?palavrachave=cln&ordenamento=mais-recente"
-response = None
-soup = None
-listings = None
 
 # Function to scrape apartments and return data as a DataFrame
-def scrape_apartments():
+def scrape_apartments(url):
     global response, soup, listings
     data = []
 
@@ -101,9 +98,16 @@ def insert_dataframe_to_dynamodb(df: pd.DataFrame, df_pk_column: str, dynamo_pk_
 
 
 # Scrape apartments and create a DataFrame
-df = scrape_apartments()
 
-insert_dataframe_to_dynamodb(df=df, df_pk_column="Cresci (PK)", dynamo_pk_column="pk", dynamo_table_name="apt-scrap")
-# Display the DataFrame with the new 'Address' column
+df = scrape_apartments(
+    url = config.url
+)
+
+insert_dataframe_to_dynamodb(
+        df=df, 
+        df_pk_column=config.df_pk_column,
+        dynamo_pk_column=config.dynamo_pk_column, 
+        dynamo_table_name=config.dynamo_table_name
+        )
+
 print(df)
-
