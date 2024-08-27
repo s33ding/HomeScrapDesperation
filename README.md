@@ -15,3 +15,8 @@ Brasília is an expensive city to live in, and the housing market moves fast. Ha
 
 - Automate daily scraping and add custom alerts for listings that meet my criteria.
 
+## Project Logo
+
+![HomeScrapDesperation Logo](src/gpt-img-repo.webp)
+
+This logo was designed with the help of [ChatGPT](https://openai.com), supporting the creation of HomeScrapDesperation.
